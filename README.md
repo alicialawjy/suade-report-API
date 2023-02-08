@@ -16,11 +16,13 @@
 
 ### III. Run flask app
     ```
+    cd app
     python3 -m flask run
     ```
 
 ## Example of using the API
-    Key in the date as a query in the url:
+Key in the date as a query in the url:
+
     ```
     http://127.0.0.1:5000/get_summary?date=2019-08-01
     ```
@@ -28,8 +30,9 @@
 ## Test
 Due to lack of time, I created a simplified unit testing that assesses the functionalities of the summary code.
 This is located in `app/test.py`. </br>
-To run the code, use: </br>
+To run the code, from the app directory, use: </br>
 
     ```
     python3 test.py
     ```
+    
