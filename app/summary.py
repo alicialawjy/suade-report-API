@@ -71,12 +71,16 @@ class Summary:
         TASK 6:
         Populates the total amount of commissions generated that day.
         '''
-        order_id_and_total = order_lines_df[['order_id','total_amount']].groupby('order_id').sum()
+        # sum the totals based on the order_ids to get the order total
+        order_id_and_total = order_lines_df[['order_id','total_amount']].groupby('order_id').sum() # order totals
+        # append the vendor_id corr to the order_id
         merge_vendor_id = order_id_and_total.merge(order_df, left_on='order_id',right_on='id')
-        vendor_id_and_total = merge_vendor_id[['vendor_id','total_amount']].groupby('vendor_id').sum()
-
+        # sum the order totals based on the vendor_id
+        vendor_id_and_total = merge_vendor_id[['vendor_id','total_amount']].groupby('vendor_id').sum() # vendor totals
+        # append the commission rate corr to the vendor_id
         merge_commission_rate = vendor_id_and_total.merge(commission_df,on='vendor_id',how='left')
-
+        
+        # compute commissions
         self.total_commission = sum(merge_commission_rate['total_amount']*merge_commission_rate['rate'])
         self.ave_commission = self.total_commission/ self.number_of_orders
     

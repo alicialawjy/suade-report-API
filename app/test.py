@@ -1,8 +1,9 @@
+'''
+This is a simplified unit test.
+Ideally I would test the API responses and the Data class as well. 
+'''
 import pandas as pd
 from summary import Summary
-
-# Ideally I would test the API responses and the Data class as well. 
-# This is a simplified unit test.
 
 # Create dummy variables to test
 test_order_data = {'id':[1,2],
