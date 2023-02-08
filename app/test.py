@@ -49,6 +49,7 @@ def test_get_commission_total_and_ave():
     assert summary.get_commission_total_and_ave(order_line_df, order_df, commission_df)==(2.7,1.35)
 
 if __name__=="__main__":
+    "Tests starting"
     test_get_number_of_orders()
     test_get_number_of_items_sold()
     test_get_number_of_customers()
@@ -56,3 +57,4 @@ if __name__=="__main__":
     test_get_ave_discount_rate()
     test_get_ave_order_total()
     test_get_commission_total_and_ave()
+    "Tests completed - no errors"
